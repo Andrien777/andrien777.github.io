@@ -4,20 +4,20 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1732352161|111685742';
+const CACHE_VERSION = '1732358015|108522763';
 /** @type {string} */
 const CACHE_PREFIX = 'tvb2-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 /** @type {string} */
-const OFFLINE_URL = 'tvb_alpha_0.7.offline.html';
+const OFFLINE_URL = 'index.offline.html';
 /** @type {boolean} */
 const ENSURE_CROSSORIGIN_ISOLATION_HEADERS = true;
 // Files that will be cached on load.
 /** @type {string[]} */
-const CACHED_FILES = ["tvb_alpha_0.7.html","tvb_alpha_0.7.js","tvb_alpha_0.7.offline.html","tvb_alpha_0.7.icon.png","tvb_alpha_0.7.apple-touch-icon.png","tvb_alpha_0.7.worker.js","tvb_alpha_0.7.audio.worklet.js"];
+const CACHED_FILES = ["index.html","index.js","index.offline.html","index.icon.png","index.apple-touch-icon.png","index.worker.js","index.audio.worklet.js"];
 // Files that we might not want the user to preload, and will only be cached on first load.
 /** @type {string[]} */
-const CACHABLE_FILES = ["tvb_alpha_0.7.wasm","tvb_alpha_0.7.pck"];
+const CACHABLE_FILES = ["index.wasm","index.pck"];
 const FULL_CACHE = CACHED_FILES.concat(CACHABLE_FILES);
 
 self.addEventListener('install', (event) => {
