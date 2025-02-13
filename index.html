@@ -79,7 +79,50 @@ body {
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
 <link rel="manifest" href="index.manifest.json">
+<script>
+var gd_callbacks = {
+   dataLoaded: null
+}
 
+function loadData() {
+   var input = document.createElement('input');
+   input.setAttribute('type', 'file');
+   input.setAttribute('accept', '.json');
+   input.click();
+
+   input.addEventListener('change', evt => {
+      var file = evt.target.files[0];
+      var reader = new FileReader();
+
+      reader.readAsText(file);
+
+      reader.onload = function(evt) {
+         if (gd_callbacks.dataLoaded) {
+            gd_callbacks.dataLoaded(reader.result, file);
+         }
+      }
+   });
+}
+
+function loadBinData() {
+   var input = document.createElement('input');
+   input.setAttribute('type', 'file');
+   input.click();
+
+   input.addEventListener('change', evt => {
+      var file = evt.target.files[0];
+      var reader = new FileReader();
+
+      reader.readAsArrayBuffer(file);
+
+      reader.onload = function(evt) {
+         if (gd_callbacks.dataBinLoaded) {
+            gd_callbacks.dataBinLoaded(new Uint8Array(reader.result));
+         }
+      }
+   });
+}
+</script>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -98,7 +141,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":816624,"index.wasm":1645895},"focusCanvas":true,"gdextensionLibs":["libgdexample.web.template_release.wasm32.wasm"],"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":904640,"index.wasm":1645895},"focusCanvas":true,"gdextensionLibs":["libgdexample.web.template_release.wasm32.wasm"],"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = true;
 const engine = new Engine(GODOT_CONFIG);
 
