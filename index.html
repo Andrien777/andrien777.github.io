@@ -95,8 +95,16 @@ body {
 <link rel="manifest" href="index.manifest.json">
 <script>
 var gd_callbacks = {
-   dataLoaded: null
+   dataLoaded: null,
+	dataLoaded_riscv: null
 }
+
+window.addEventListener('beforeunload', function (event) {
+    // Custom message is not displayed in modern browsers, but you can set a returnValue
+    event.preventDefault(); // Prevent the default action
+    event.returnValue = '';
+});
+
 
 function loadData() {
    var input = document.createElement('input');
