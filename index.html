@@ -136,6 +136,25 @@ function loadBinData() {
       }
    });
 }
+
+function loadBinData_riscv() {
+   var input = document.createElement('input');
+   input.setAttribute('type', 'file');
+   input.click();
+
+   input.addEventListener('change', evt => {
+      var file = evt.target.files[0];
+      var reader = new FileReader();
+
+      reader.readAsArrayBuffer(file);
+
+      reader.onload = function(evt) {
+         if (gd_callbacks.dataBinLoaded_riscv) {
+            gd_callbacks.dataBinLoaded_riscv(new Uint8Array(reader.result));
+         }
+      }
+   });
+}
 </script>
 	</head>
 	<body>
@@ -155,7 +174,7 @@ function loadBinData() {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":3939760,"index.wasm":1650612},"focusCanvas":true,"gdextensionLibs":["libgdexample.web.template_release.wasm32.wasm"],"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":3939744,"index.wasm":1650612},"focusCanvas":true,"gdextensionLibs":["libgdexample.web.template_release.wasm32.wasm"],"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = true;
 const engine = new Engine(GODOT_CONFIG);
 
