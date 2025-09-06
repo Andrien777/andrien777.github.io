@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1757183117|30482385';
+const CACHE_VERSION = '1757184945|111159964';
 /** @type {string} */
 const CACHE_PREFIX = 'TVBuilder-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
